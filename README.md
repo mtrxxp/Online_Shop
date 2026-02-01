@@ -1,4 +1,4 @@
-Online Shop — Full Stack E-commerce Application 🛒
+Online Shop — Full Stack E-commerce Application
 This is a modern web application for an online store, built with a robust architecture using Java (Spring Boot), React.js, and PostgreSQL, all containerized with Docker.
 
 Architecture Diagram
