@@ -20,50 +20,40 @@ The system follows a classic Client-Server-Database pattern within a containeriz
 Tech Stack
 
     Frontend: React.js (Hooks, Axios, Styled Components / CSS Modules)
-
-    Backend: Java 17+, Spring Boot (Spring Data JPA, Spring Security, Hibernate)
-
+    Backend: Java 21, Spring Boot (Spring Data JPA, Hibernate)
     Database: PostgreSQL
-
     Containerization: Docker, Docker Compose
-
-    Build Tools: Maven (Backend), NPM (Frontend)
+    Build Tools: Maven, Lombok (Backend), NPM (Frontend)
 
 Getting Started (Docker Deployment)
 
 The easiest way to run the project is using Docker Compose.
 
   1. Clone the repository:
-
+     
     git clone https://github.com/mtrxxp/Online_Shop.git
     cd Online_Shop
-  2. Run the entire stack:
+  3. Run the entire stack:
      
     docker-compose up --build
 
   3. Access the application:
 
     Frontend UI: http://localhost:3000
-
     Backend API: http://localhost:8080
-
     Database: localhost:5432
 
 Local Development:
   Backend (Spring Boot):
   
     Navigate to the backend directory.
-
     Update src/main/resources/application.properties with your local Postgres credentials.
-
     Run: ./mvnw spring-boot:run
 
   Frontend (React):
 
     Navigate to the frontend directory.
-
     Install dependencies: npm install
-
     Run: npm start
 
   
