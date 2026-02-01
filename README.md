@@ -5,16 +5,17 @@ This is a modern web application for an online store, built with a robust archit
 Architecture Diagram
 
 The system follows a classic Client-Server-Database pattern within a containerized environment:
-graph TD
-    User((User/Browser)) <--> |HTTP/REST| Frontend[React.js Container]
-    Frontend <--> |API Calls| Backend[Spring Boot Container]
-    Backend <--> |JDBC/JPA| DB[(PostgreSQL Container)]
+
+     graph TD
+        User((User/Browser)) <--> |HTTP/REST| Frontend[React.js Container]
+        Frontend <--> |API Calls| Backend[Spring Boot Container]
+        Backend <--> |JDBC/JPA| DB[(PostgreSQL Container)]
     
     subgraph "Docker Network"
-    Frontend
-    Backend
-    DB
-    end
+        Frontend
+        Backend
+        DB
+        end
 
 Tech Stack
 
