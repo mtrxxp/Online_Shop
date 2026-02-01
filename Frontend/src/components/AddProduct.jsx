@@ -88,7 +88,7 @@ const AddProduct = () => {
     formData.append("imageFile", image);
     formData.append(
       "product",
-      new Blob([JSON.stringify(product)], { type: "application/json" })
+      new Blob([JSON.stringify(product)], { type: "application/json" }),
     );
 
     axios

@@ -18,7 +18,6 @@ const Navbar = ({ onSelectCategory }) => {
   const [showNoProductsMessage, setShowNoProductsMessage] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  // 2. Add these new state variables
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   const navbarRef = useRef(null);
 
@@ -29,25 +28,20 @@ const Navbar = ({ onSelectCategory }) => {
     fetchInitialData();
   }, []);
 
-  // 3. Add this to your useEffect or as a separate useEffect
   useEffect(() => {
-    // Add click event listener to close navbar when clicking outside
     const handleClickOutside = (event) => {
       if (navbarRef.current && !navbarRef.current.contains(event.target)) {
         setIsNavCollapsed(true);
       }
     };
 
-    // Add event listener to document when component mounts
     document.addEventListener("mousedown", handleClickOutside);
 
-    // Clean up event listener on component unmount
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
-  // Initial data fetch (if needed)
   const fetchInitialData = async () => {
     try {
       const response = await axios.get(`${baseUrl}/api/products`);
@@ -57,23 +51,18 @@ const Navbar = ({ onSelectCategory }) => {
     }
   };
 
-  // 4. Add these new functions
-  // Toggle navbar collapse state
   const handleNavbarToggle = () => {
     setIsNavCollapsed(!isNavCollapsed);
   };
 
-  // Close navbar when a link is clicked
   const handleLinkClick = () => {
     setIsNavCollapsed(true);
   };
 
-  // Update input value without searching
   const handleInputChange = (value) => {
     setInput(value);
   };
 
-  // Only search when the form is submitted
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -85,7 +74,7 @@ const Navbar = ({ onSelectCategory }) => {
 
     try {
       const response = await axios.get(
-        `${baseUrl}/api/products/search?keyword=${input}`
+        `${baseUrl}/api/products/search?keyword=${input}`,
       );
       setSearchResults(response.data);
 
@@ -93,7 +82,6 @@ const Navbar = ({ onSelectCategory }) => {
         setNoResults(true);
         setShowNoProductsMessage(true);
       } else {
-        // Redirect to search results page with the search data
         navigate(`/search-results`, { state: { searchData: response.data } });
       }
 
@@ -102,7 +90,7 @@ const Navbar = ({ onSelectCategory }) => {
       console.error("Error searching:", error);
       setShowNoProductsMessage(true);
     } finally {
-      setIsLoading(false); // Hide loader when API call finishes (success or error)
+      setIsLoading(false);
     }
   };
 
