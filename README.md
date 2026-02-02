@@ -44,7 +44,7 @@ Access the application:
     Database: localhost:5432
 
 Local Development:
-  Backend (Spring Boot):
+Backend (Spring Boot):
   
     Navigate to the backend directory.
     Update src/main/resources/application.properties with your local Postgres credentials.
