@@ -37,7 +37,7 @@ The easiest way to run the project is using Docker Compose.
      
     docker-compose up --build
 
-  3. Access the application:
+Access the application:
 
     Frontend UI: http://localhost:3000
     Backend API: http://localhost:8080
